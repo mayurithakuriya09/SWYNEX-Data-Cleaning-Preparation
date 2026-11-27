@@ -1,0 +1,36 @@
+SWYNEX – DATA CLEANING & PREPARATION
+
+Source file: netflix_titles.csv
+Rows before cleaning: 8807
+Rows after cleaning: 8807
+Columns: 12
+Exact duplicate rows removed: 0
+Duplicate show_id records removed: 0
+Rows with rating values misplaced as duration (corrected): 3
+
+Missing values by column (before -> after):
+- show_id: 0 -> 0
+- type: 0 -> 0
+- title: 0 -> 0
+- director: 2634 -> 2634
+- cast: 825 -> 825
+- country: 831 -> 831
+- date_added: 10 -> 10
+- release_year: 0 -> 0
+- rating: 4 -> 7
+- duration: 3 -> 0
+- listed_in: 0 -> 0
+- description: 0 -> 0
+
+Cleaning actions:
+- Trimmed leading and trailing whitespace in text columns.
+- Standardized date_added to YYYY-MM-DD.
+- Corrected three records where a value such as '74 min' was stored in rating; moved it to duration and left rating missing.
+- Checked and removed exact duplicate rows and duplicate show_id values if present.
+- Preserved missing values as blank/NA; did not invent missing director, cast, country, rating, or duration values.
+- Preserved release_year as a numeric integer column.
+
+Notes:
+- The source contains missing values in director, cast, country, date_added, rating, and duration.
+- The source has no exact duplicate rows and no duplicate show_id values, so no records were removed for duplication.
+- duration is retained as text because it contains mixed units (minutes for movies and seasons for TV shows).
